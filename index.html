@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Todo app</title>
+</head>
+
+<body>
+
+  <main>
+
+    <header class="header">
+      <h1 class="header-title">Todo</h1>
+      <img src="images/icon-moon.svg" alt="moon icon" class="theme-toggle-icon">
+    </header>
+
+    <div class="todo-container">
+      <div class="todo-input-wrapper">
+        <input type="radio" class="todo-radio"><input type="text" class="todo-text-input">
+      </div>
+
+      <div class="todo-list">
+        <div class="todo-item">
+          <input type="radio" class="todo-radio">
+          <p class="todo-text">Jog around the park 3*</p>
+          <button class="delete-btn">
+            <img src="images/icon-cross.svg" alt="cross icon" class="delete-icon">
+          </button>
+        </div>
+
+        <div class="todo-item">
+          <input type="radio" class="todo-radio">
+          <p class="todo-text">10 minutes meditation</p>
+          <button class="delete-btn">
+            <img src="images/icon-cross.svg" alt="cross icon" class="delete-icon">
+          </button>
+        </div>
+
+        <div class="todo-item">
+          <input type="radio" class="todo-radio">
+          <p class="todo-text">Read for 1 hour</p>
+          <button class="delete-btn">
+            <img src="images/icon-cross.svg" alt="cross icon" class="delete-icon">
+          </button>
+        </div>
+
+        <div class="todo-item">
+          <input type="radio" class="todo-radio">
+          <p class="todo-text">Pick up groceries</p>
+          <button class="delete-btn">
+            <img src="images/icon-cross.svg" alt="cross icon" class="delete-icon">
+          </button>
+        </div>
+
+        <div class="todo-item">
+          <input type="radio" class="todo-radio">
+          <p class="todo-text">Complete Todo App on Frontend Mentor</p>
+          <button class="delete-btn">
+            <img src="images/icon-cross.svg" alt="cross icon" class="delete-icon">
+          </button>
+        </div>
+      </div>
+
+      <div class="todo-controls">
+        <p class="items-left">items left</p>
+        <button class="filter-btn all">All</button>
+        <button class="filter-btn active">Active</button>
+        <button class="filter-btn completed">Completed</button>
+        <button class="filter-btn clear-completed">Clear Completed</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p class="footer-text">Drag and drop to reorder list</p>
+    </footer>
+
+  </main>
+
+</body>
+
+</html>
