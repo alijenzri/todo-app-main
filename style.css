@@ -44,7 +44,7 @@ img {
 :root {
     /* | Primary  */
     --Bright-Blue: hsl(220, 98%, 61%)
-    /* --Check-Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%) */
+        /* --Check-Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%) */
 }
 
 /* | GENERAL STYLES */
@@ -60,4 +60,35 @@ body {
     background-color: var(--Light-Grayish-Blue);
     color: var(--Very-Dark-Blue);
     font-family: 'Josefin Sans';
+}
+
+/* | MAIN */
+main {
+    width: 600px;
+    height: 83vh;
+}
+
+/* | HEADER */
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.header-title {
+    color: #FFF;
+    letter-spacing: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+}
+
+.theme-toggle-icon {
+    width: 23px;
+    height: 23px;
+    object-fit: cover;
+    cursor: pointer;
 }
