@@ -26,6 +26,7 @@ input, button {
     --text-primary: hsl(235, 19%, 35%);
     --text-secondary: hsl(236, 9%, 61%);
     --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --border-radio-color : black;
 
     --background-image-url : url('images/bg-desktop-light.jpg');
 }
@@ -37,6 +38,7 @@ input, button {
     --text-primary: hsl(234, 39%, 85%);
     --text-secondary: hsl(234, 11%, 52%);
     --box-shadow-color: rgba(0, 0, 0, 0.4);
+    --border-radio-color : white;
 
     --background-image-url : url('images/bg-desktop-dark.jpg');
 }
@@ -114,6 +116,13 @@ header {
     margin-left: 30px;
     width: 25px;
     height: 25px;
+    appearance: none; 
+    border-radius: 50%; 
+    outline: none; 
+    cursor: pointer;
+    background-color: var(--background-primary); 
+    border: 2px solid var(--text-primary); 
+    box-shadow: 0 0 0 2px var(--background-primary); 
 }
 
 .todo-text-input {
@@ -122,6 +131,8 @@ header {
     border: none;
     border-radius: 10px;
     padding-left: 80px;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
     box-shadow: 0px 2px 4px var(--box-shadow-color);
 }
 
