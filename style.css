@@ -14,7 +14,8 @@ img {
     height: auto;
 }
 
-input, button {
+input,
+button {
     font: inherit;
 }
 
@@ -26,9 +27,9 @@ input, button {
     --text-primary: hsl(235, 19%, 35%);
     --text-secondary: hsl(236, 9%, 61%);
     --box-shadow-color: rgba(0, 0, 0, 0.1);
-    --border-radio-color : black;
+    --border-radio-color: black;
 
-    --background-image-url : url('images/bg-desktop-light.jpg');
+    --background-image-url: url('images/bg-desktop-light.jpg');
 }
 
 :root[data-theme='dark'] {
@@ -38,9 +39,9 @@ input, button {
     --text-primary: hsl(234, 39%, 85%);
     --text-secondary: hsl(234, 11%, 52%);
     --box-shadow-color: rgba(0, 0, 0, 0.4);
-    --border-radio-color : white;
+    --border-radio-color: white;
 
-    --background-image-url : url('images/bg-desktop-dark.jpg');
+    --background-image-url: url('images/bg-desktop-dark.jpg');
 }
 
 :root {
@@ -63,6 +64,20 @@ body {
     color: var(--text-primary);
     font-family: 'Josefin Sans';
     font-size: 18px;
+}
+
+.check-icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    margin-left: 8px;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: var(--text-secondary);
 }
 
 /* | MAIN */
@@ -116,13 +131,13 @@ header {
     margin-left: 30px;
     width: 25px;
     height: 25px;
-    appearance: none; 
-    border-radius: 50%; 
-    outline: none; 
+    appearance: none;
+    border-radius: 50%;
+    outline: none;
     cursor: pointer;
-    background-color: var(--background-primary); 
-    border: 2px solid var(--text-primary); 
-    box-shadow: 0 0 0 2px var(--background-primary); 
+    background-color: var(--background-primary);
+    border: 2px solid var(--text-primary);
+    box-shadow: 0 0 0 2px var(--background-primary);
 }
 
 .todo-text-input {
@@ -134,6 +149,10 @@ header {
     background-color: var(--background-primary);
     color: var(--text-primary);
     box-shadow: 0px 2px 4px var(--box-shadow-color);
+}
+
+.todo-text-input::placeholder {
+    color: var(--text-secondary);
 }
 
 .todo-list .todo-item:first-child {

@@ -1,7 +1,7 @@
 const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+const checkedTasks = JSON.parse(localStorage.getItem('checkedTasks')) || [];
 const todoInput = document.querySelector('.todo-text-input');
 const todoList = document.querySelector('.todo-list');
-
 
 function taskExists(taskName) {
     return storedTasks.includes(taskName);
@@ -10,9 +10,10 @@ function taskExists(taskName) {
 function showTasks() {
     let html = '';
     storedTasks.forEach((task) => {
+        const isChecked = checkedTasks.includes(task);
         html += `
-        <div class="todo-item" data-task-name="${task}">
-          <input type="radio" class="todo-radio">
+        <div class="todo-item ${isChecked ? 'completed' : ''}" data-task-name="${task}">
+          ${isChecked ? '<img src="images/icon-check.svg" alt="check icon" class="check-icon">' : '<input type="radio" class="todo-radio">'}
           <p class="todo-text">${task}</p>
           <button class="delete-btn">
             <img src="images/icon-cross.svg" alt="cross icon" class="delete-icon">
@@ -28,8 +29,25 @@ function showTasks() {
             const index = storedTasks.indexOf(taskName);
             if (index !== -1) {
                 storedTasks.splice(index, 1);
+                const checkedIndex = checkedTasks.indexOf(taskName);
+                if (checkedIndex !== -1) {
+                    checkedTasks.splice(checkedIndex, 1);
+                }
                 updateTasks();
-                showTasks();
+                showTasks(); 
+            }
+        });
+    });
+
+    todoList.querySelectorAll('.todo-radio').forEach(radio => {
+        radio.addEventListener('click', () => {
+            const taskItem = radio.parentElement;
+            const taskName = taskItem.dataset.taskName;
+            taskItem.classList.add('completed');
+            radio.outerHTML = '<img src="images/icon-check.svg" alt="check icon" class="check-icon">';
+            if (!checkedTasks.includes(taskName)) {
+                checkedTasks.push(taskName);
+                updateTasks();
             }
         });
     });
@@ -37,6 +55,7 @@ function showTasks() {
 
 function updateTasks() {
     localStorage.setItem('tasks', JSON.stringify(storedTasks));
+    localStorage.setItem('checkedTasks', JSON.stringify(checkedTasks));
 }
 
 // add task
@@ -56,7 +75,7 @@ if (!todoInput) {
             storedTasks.push(todoInputValue);
             todoInput.value = '';
             updateTasks();
-            showTasks();
+            showTasks(); 
         }
     });
 }
