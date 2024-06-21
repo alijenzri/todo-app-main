@@ -201,3 +201,12 @@ header {
 .filter-btn:hover {
     color: var(--Very-Dark-Blue);
 }
+
+/* | todo-container */
+footer {
+    text-align: center;
+    color: var(--Dark-Grayish-Blue);
+    font-weight: 700;
+    padding-top: 50px;
+    font-size: 15px;
+}
