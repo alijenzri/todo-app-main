@@ -253,12 +253,10 @@ footer {
 
     body {
         background-image: var(--background-image-mobile-url);
-        background-size: 100% 25%;
     }
 
     main {
         width: 80%;
-        height: auto;
     }
 
     .todo-controls {
@@ -323,5 +321,25 @@ footer {
 
     .todo-sections-media .filter-btn {
         margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    :root {
+        /* | FONT */
+        --body-fonts: 400 14px 'Josefin Sans';
+        --header-fonts: 700 1.7rem 'Josefin Sans';
+        --controls-buttons-fonts: 700 11px 'Josefin Sans';
+        --footer-fonts: 700 11px 'Josefin Sans';
+    }
+}
+
+@media screen and (max-width: 375px) {
+    :root {
+        /* | FONT */
+        --body-fonts: 400 12px 'Josefin Sans';
+        --header-fonts: 700 1.2rem 'Josefin Sans';
+        --controls-buttons-fonts: 700 9px 'Josefin Sans';
+        --footer-fonts: 700 9px 'Josefin Sans';
     }
 }
