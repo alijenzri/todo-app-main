@@ -8,7 +8,10 @@ function taskExists(taskName) {
 }
 
 function itemLeft() {
-    document.querySelector('.items-left').innerHTML = `${storedTasks.length - checkedTasks.length} items left`;
+    const itemsLeftCount = storedTasks.length - checkedTasks.length;
+    document.querySelectorAll('.items-left').forEach(el => {
+        el.innerHTML = `${itemsLeftCount} items left`;
+    });
 }
 
 function activeTasks() {
@@ -129,40 +132,47 @@ if (!todoInput) {
 
 document.addEventListener('DOMContentLoaded', () => {
     showTasks();
-    document.querySelector('.js-all').classList.add('selected');
+    document.querySelectorAll('.js-all').forEach(el => el.classList.add('selected'));
 
     // Controls section
-    document.querySelector('.js-all').addEventListener('click', () => {
-        showTasks();
-        document.querySelector('.js-all').classList.add('selected');
-        document.querySelector('.js-active').classList.remove('selected');
-        document.querySelector('.js-completed').classList.remove('selected');
-    });
-
-    document.querySelector('.js-active').addEventListener('click', () => {
-        activeTasks();
-        document.querySelector('.js-active').classList.add('selected');
-        document.querySelector('.js-all').classList.remove('selected');
-        document.querySelector('.js-completed').classList.remove('selected');
-    });
-
-    document.querySelector('.js-completed').addEventListener('click', () => {
-        showCompletedTasks();
-        document.querySelector('.js-completed').classList.add('selected');
-        document.querySelector('.js-all').classList.remove('selected');
-        document.querySelector('.js-active').classList.remove('selected');
-    });
-
-    document.querySelector('.clear-completed').addEventListener('click', () => {
-        checkedTasks.forEach((task) => {
-            const index = storedTasks.indexOf(task);
-            if (index !== -1) {
-                storedTasks.splice(index, 1);
-            }
+    document.querySelectorAll('.js-all').forEach(el => {
+        el.addEventListener('click', () => {
+            showTasks();
+            document.querySelectorAll('.js-all').forEach(btn => btn.classList.add('selected'));
+            document.querySelectorAll('.js-active').forEach(btn => btn.classList.remove('selected'));
+            document.querySelectorAll('.js-completed').forEach(btn => btn.classList.remove('selected'));
         });
-        checkedTasks = [];
-        updateTasks();
-        showTasks();
+    });
+
+    document.querySelectorAll('.js-active').forEach(el => {
+        el.addEventListener('click', () => {
+            activeTasks();
+            document.querySelectorAll('.js-active').forEach(btn => btn.classList.add('selected'));
+            document.querySelectorAll('.js-all').forEach(btn => btn.classList.remove('selected'));
+            document.querySelectorAll('.js-completed').forEach(btn => btn.classList.remove('selected'));
+        });
+    });
+
+    document.querySelectorAll('.js-completed').forEach(el => {
+        el.addEventListener('click', () => {
+            showCompletedTasks();
+            document.querySelectorAll('.js-completed').forEach(btn => btn.classList.add('selected'));
+            document.querySelectorAll('.js-all').forEach(btn => btn.classList.remove('selected'));
+            document.querySelectorAll('.js-active').forEach(btn => btn.classList.remove('selected'));
+        });
+    });
+
+    document.querySelectorAll('.clear-completed').forEach(el => {
+        el.addEventListener('click', () => {
+            checkedTasks.forEach((task) => {
+                const index = storedTasks.indexOf(task);
+                if (index !== -1) {
+                    storedTasks.splice(index, 1);
+                }
+            });
+            checkedTasks = [];
+            updateTasks();
+            showTasks();
+        });
     });
 });
-
