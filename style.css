@@ -77,7 +77,11 @@ body {
 
 .completed {
     text-decoration: line-through;
-    color: var(--text-secondary);
+    color:  var(--text-secondary);
+}
+
+.selected {
+    color: hsl(220, 98%, 61%);
 }
 
 /* | MAIN */
