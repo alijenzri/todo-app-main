@@ -7,6 +7,11 @@ function taskExists(taskName) {
     return storedTasks.includes(taskName);
 }
 
+function itemLeft(){
+    document.querySelector('.items-left')
+        .innerHTML = `${storedTasks.length - checkedTasks.length} items left`
+}
+
 function showTasks() {
     let html = '';
     storedTasks.forEach((task) => {
@@ -51,11 +56,14 @@ function showTasks() {
             }
         });
     });
+
+    itemLeft();   
 }
 
 function updateTasks() {
     localStorage.setItem('tasks', JSON.stringify(storedTasks));
     localStorage.setItem('checkedTasks', JSON.stringify(checkedTasks));
+    itemLeft();
 }
 
 // add task
